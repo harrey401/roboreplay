@@ -1,0 +1,89 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+.eggs/
+dist/
+build/
+*.whl
+*.pyz
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS generated
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Testing / Coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# RoboReplay generated artifacts
+*.rrp
+batch_output/
+test_csv_output/
+
+# Exported files (keep docs html)
+!docs/**/*.html
+
+# Secrets / Credentials / API keys — NEVER commit these
+.env
+.env.*
+.env.local
+.env.production
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+credentials.json
+secrets.json
+service_account.json
+anthropic_key.txt
+*_secret*
+*_api_key*
+token.json
+
+# Docs build output
+site/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# AI assistant config
+.claude/
+CLAUDE.md
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+nul

@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=68.0", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "roboreplay"
+version = "0.1.0"
+description = "The DVR for robot behavior — record, replay, diagnose, and share robot execution data"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Gow"},
+]
+keywords = ["robotics", "recording", "debugging", "manipulation", "mujoco", "simulation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy>=1.24",
+    "h5py>=3.9",
+    "click>=8.0",
+    "rich>=13.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+diagnose = ["anthropic>=0.30"]
+gym = ["gymnasium>=0.29"]
+mujoco = ["mujoco>=3.0"]
+video = ["opencv-python>=4.8", "ffmpeg-python>=0.2"]
+viz = ["matplotlib>=3.7"]
+docs = ["mkdocs-material>=9.0", "mkdocstrings[python]>=0.24"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "mypy>=1.5",
+    "ruff>=0.1",
+    "build>=1.0",
+]
+all = [
+    "roboreplay[diagnose]",
+    "roboreplay[gym]",
+    "roboreplay[video]",
+    "roboreplay[viz]",
+    "roboreplay[dev]",
+]
+
+[project.scripts]
+roboreplay = "roboreplay.cli.main:cli"
+
+[project.urls]
+Homepage = "https://github.com/gow/roboreplay"
+Documentation = "https://gow.github.io/roboreplay"
+Repository = "https://github.com/gow/roboreplay"
+Issues = "https://github.com/gow/roboreplay/issues"
+
+[tool.setuptools.packages.find]
+include = ["roboreplay*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true

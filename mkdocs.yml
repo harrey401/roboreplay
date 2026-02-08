@@ -1,0 +1,74 @@
+site_name: RoboReplay
+site_description: The DVR for robot behavior — record, replay, diagnose, and share robot execution data
+site_url: https://gow.github.io/roboreplay
+repo_url: https://github.com/gow/roboreplay
+repo_name: gow/roboreplay
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            heading_level: 3
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quickstart: getting-started/quickstart.md
+  - Use Cases: use-cases.md
+  - Guide:
+    - Recording: guide/recording.md
+    - Replaying: guide/replaying.md
+    - Diagnosis: guide/diagnosis.md
+    - Comparing: guide/comparing.md
+    - Exporting: guide/exporting.md
+    - Gymnasium: guide/gymnasium.md
+  - API Reference:
+    - Recorder: api/recorder.md
+    - Replay: api/replay.md
+    - Compare: api/compare.md
+    - Diagnose: api/diagnose.md
+    - Export: api/export.md
+  - Examples:
+    - Pick and Place: examples/pick-place.md
+    - MuJoCo Panda: examples/mujoco-panda.md
+    - CartPole: examples/cartpole.md
+    - Custom Robot: examples/custom-robot.md
+    - Batch Analysis: examples/batch-analysis.md
+  - CLI: cli.md
